@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import Features from "./components/Features";
 import CalendarPreview from "./components/CalendarPreview";
 import CTA from "./components/CTA";
+import Marquee from "./components/Marquee";
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
         <div className="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="h-7 w-7 rounded-md" style={{ backgroundColor: "#A91859" }} />
-            <span className="font-bold">New Tab Calendar</span>
+            <span className="font-bold">بـرهـه</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-sm" dir="rtl">
             <a href="#" className="text-gray-600 hover:text-gray-900">ویژگی‌ها</a>
@@ -22,6 +23,7 @@ function App() {
 
       <main>
         <Hero />
+        <Marquee />
         <Features />
         <CalendarPreview />
         <CTA />
@@ -29,7 +31,7 @@ function App() {
 
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-8 text-center text-sm text-gray-500" dir="rtl">
-          ساخته‌شده با عشق — رنگ برند: #A91859
+          «بـرهـه» — ساخته‌شده با عشق — رنگ برند: #A91859
         </div>
       </footer>
     </div>

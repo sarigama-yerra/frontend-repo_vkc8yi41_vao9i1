@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { motion } from "framer-motion";
 
 const brand = "#A91859";
 
@@ -17,19 +17,32 @@ function buildMonth(year, month) {
 
 export default function CalendarPreview() {
   const now = new Date();
-  const days = useMemo(() => buildMonth(now.getFullYear(), now.getMonth()), [now]);
+  const days = buildMonth(now.getFullYear(), now.getMonth());
   const monthName = now.toLocaleDateString("fa-IR", { month: "long", year: "numeric" });
 
   return (
-    <section id="calendar" className="mx-auto max-w-6xl px-6 pb-20">
-      <div className="mb-4 flex items-end justify-between" dir="rtl">
+    <section id="calendar" className="mx-auto max-w-6xl px-6 pb-24">
+      <motion.div
+        className="mb-4 flex items-end justify-between"
+        dir="rtl"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <div>
           <h2 className="text-2xl font-bold text-gray-900">تقویم آنلاین</h2>
           <p className="mt-1 text-gray-600 text-sm">نمای ماه جاری با روزهای هفته</p>
         </div>
         <span className="rounded-md px-3 py-1 text-sm font-medium text-white" style={{ backgroundColor: brand }}>{monthName}</span>
-      </div>
-      <div className="overflow-hidden rounded-2xl border bg-white shadow-sm">
+      </motion.div>
+      <motion.div
+        className="overflow-hidden rounded-2xl border bg-white shadow-sm"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+      >
         <div className="grid grid-cols-7 border-b bg-gray-50 text-center text-xs font-medium text-gray-600">
           {["د","س","چ","پ","ج","ش","ی"].map((d) => (
             <div key={d} className="px-2 py-2">{d}</div>
@@ -54,7 +67,7 @@ export default function CalendarPreview() {
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
